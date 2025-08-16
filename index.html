@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dri Art's - Tricotin Artesanal | Itanhaém</title>
+    <!-- Favicon de Girassol -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50%' y='60%' font-size='80' text-anchor='middle' dominant-baseline='middle'>🌻</text></svg>">    <style>
+        :root {
+            --sunflower-yellow: #FFD700;
+            --sunflower-dark: #E3A600;
+            --sunflower-light: #FFEE93;
+            --sunflower-brown: #8B4513;
+            --sunflower-green: #556B2F;
+            --text-dark: #5C4D3D;
+            --acrylic-bg: rgba(255, 255, 255, 0.7);
+            --acrylic-border: rgba(255, 255, 255, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comfortaa', cursive;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--sunflower-light), var(--sunflower-yellow));
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            touch-action: manipulation;
+            background-image: url('https://images.unsplash.com/photo-1606041008023-472dfb5e530f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 215, 0, 0.3);
+            z-index: -1;
+        }
+        
+        header {
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--acrylic-border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--sunflower-brown);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .slogan {
+            font-size: 1.1rem;
+            color: var(--sunflower-green);
+            font-weight: 500;
+        }
+        
+        .sunflower-icon {
+            color: var(--sunflower-dark);
+            margin: 0 5px;
+        }
+        
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: var(--sunflower-brown);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px solid var(--acrylic-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .craft-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 12px;
+            margin: 1rem 0;
+            border: 3px solid var(--sunflower-yellow);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-section {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 0 1rem;
+        }
+        
+        .contact-title {
+            font-size: clamp(1.3rem, 4vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--sunflower-brown);
+        }
+        
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--sunflower-dark), var(--sunflower-yellow));
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-card {
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid var(--acrylic-border);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0)
+            );
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .contact-card:active {
+            transform: scale(0.98);
+        }
+        
+        .contact-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--sunflower-dark);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+            color: var(--sunflower-brown);
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--sunflower-brown);
+        }
+        
+        .contact-info {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .contact-cta {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: var(--sunflower-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-cta {
+            color: var(--sunflower-brown);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            background: var(--acrylic-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid var(--acrylic-border);
+        }
+        
+        .footer-text {
+            color: var(--sunflower-brown);
+            margin-bottom: 0.5rem;
+        }
+        
+        .dev-contact {
+            font-size: 0.8rem;
+            color: var(--sunflower-green);
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+            color: var(--sunflower-green);
+            font-size: 0.9rem;
+        }
+        
+        .location i {
+            margin-right: 5px;
+        }
+        
+        /* Melhorias para mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.2rem 0;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 1.5rem 1rem;
+            }
+            
+            .hero h1 {
+                margin-bottom: 1.2rem;
+            }
+            
+            .hero p {
+                margin-bottom: 2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            
+            .contact-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-icon {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            .slogan {
+                font-size: 1rem;
+            }
+            
+            .contact-card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Dri Art's <i class="fas fa-sun sunflower-icon"></i></div>
+        <div class="slogan">Tricotin Artesanal em Itanhaém</div>
+    </header>
+    
+    <section class="hero">
+        <h1>Peças em Tricotin feitas com amor <i class="fas fa-heart sunflower-icon"></i></h1>
+        <p>Criações artesanais únicas e personalizadas, perfeitas para presentear ou decorar seu lar com aconchego.</p>
+        
+        <!-- Imagem ilustrativa do tricotin (substitua pela imagem real) -->
+        <img src="t1.jpg" alt="Trabalhos em tricotin" class="craft-image">
+        <img src="t2.jpg" alt="Trabalhos em tricotin" class="craft-image">
+        
+        <div class="contact-section">
+            <h2 class="contact-title">Como encomendar</h2>
+            
+            <div class="contact-grid">
+                <a href="https://api.whatsapp.com/send?phone=5513997165495&text=Olá%20Dri%20Art's!%20Vim%20conhecer%20seu%20trabalho%20e%20adoraria%20fazer%20um%20orçamento.%0A%0APoderia%20me%20enviar%20mais%20informações%20sobre%20seus%20trabalhos%20em%20tricotin?%0A%0AAgradeço%20desde%20já!" class="contact-card" target="_blank" rel="noopener">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="contact-name">WhatsApp</h3>
+                    <p class="contact-info">Solicite seu orçamento personalizado</p>
+                    <span class="contact-cta">Conversar agora <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="https://www.instagram.com/drii_arts/" class="contact-card" target="_blank" rel="noopener">
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3 class="contact-name">Instagram</h3>
+                    <p class="contact-info">Veja meus trabalhos e novidades</p>
+                    <span class="contact-cta">Ver portfolio <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <a href="https://www.facebook.com/drica.santos.686095" class="contact-card" target="_blank" rel="noopener">
+                    <div class="contact-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h3 class="contact-name">Facebook</h3>
+                    <p class="contact-info">Acompanhe meu trabalho</p>
+                    <span class="contact-cta">Visitar página <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Itanhaém - São Paulo</span>
+        </div>
+    </section>
+    
+    <footer>
+        <p class="footer-text">© <span id="current-year"></span> Dri Art's - Tricotin Artesanal</p>
+        <p class="dev-contact">Site desenvolvido por: wanderson_qaz@hotmail.com</p>
+    </footer>
+
+    <script>
+        // Atualiza o ano automaticamente
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
